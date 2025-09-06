@@ -5,6 +5,9 @@
 // HYPRLAND WORKSPACES. CHOOSE as desired and place on waybar configs
 
 {
+// Select waybar monitors
+"output": ["DP-1"],
+
 // CIRCLES Style
 "hyprland/workspaces": {
 	"active-only": false,
