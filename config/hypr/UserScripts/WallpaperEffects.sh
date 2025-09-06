@@ -3,7 +3,6 @@
 # Wallpaper Effects using ImageMagick (SUPER SHIFT W)
 
 # Variables
-terminal=kitty
 wallpaper_current="$HOME/.config/hypr/wallpaper_effects/.wallpaper_current"
 wallpaper_output="$HOME/.config/hypr/wallpaper_effects/.wallpaper_modified"
 SCRIPTSDIR="$HOME/.config/hypr/scripts"
@@ -20,6 +19,27 @@ TYPE="wipe"
 DURATION=2
 BEZIER=".43,1.19,1,.4"
 SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION --transition-bezier $BEZIER"
+
+# Define the path to the config file
+config_file=$HOME/.config/hypr/UserConfigs/01-UserDefaults.conf
+
+# Check if the config file exists
+if [[ ! -f "$config_file" ]]; then
+    echo "Error: Configuration file not found!"
+    exit 1
+fi
+
+# Process the config file in memory, removing the $ and fixing spaces
+config_content=$(sed 's/\$//g' "$config_file" | sed 's/ = /=/')
+
+# Source the modified content directly from the variable
+eval "$config_content"
+
+# Check if $term is set correctly
+if [[ -z "$term" ]]; then
+    echo "Error: \$term is not set in the configuration file!"
+    exit 1
+fi
 
 # Define ImageMagick effects
 declare -A effects=(
@@ -126,9 +146,9 @@ if [[ -n "$choice" ]]; then
     ; then
 
     # Check if terminal exists
-    if ! command -v "$terminal" &>/dev/null; then
-    notify-send -i "$iDIR/ja.png" "Missing $terminal" "Install $terminal to enable setting of wallpaper background"
-    exit 1
+    if ! command -v "$term" &>/dev/null; then
+      notify-send -i "$iDIR/ja.png" "Missing $term" "Install $term to enable setting of wallpaper background"
+      exit 1
     fi
 
 	exec $SCRIPTSDIR/sddm_wallpaper.sh --effects

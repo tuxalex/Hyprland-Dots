@@ -25,11 +25,13 @@ fi
 
 # Execute accordingly based on the passed argument
 if [[ "$1" == "--btop" ]]; then
-    $term --title btop sh -c 'btop'
+    $term --title=btop -e 'btop'
 elif [[ "$1" == "--nvtop" ]]; then
-    $term --title nvtop sh -c 'nvtop'
+    $term --title=nvtop -e 'nvtop'
+elif [[ "$1" == "--gdu" ]]; then
+    $term --title=gdu -e 'gdu -d'
 elif [[ "$1" == "--nmtui" ]]; then
-    $term nmtui
+    $term -e 'nmtui' 
 elif [[ "$1" == "--term" ]]; then
     $term &
 elif [[ "$1" == "--files" ]]; then
@@ -38,6 +40,7 @@ else
     echo "Usage: $0 [--btop | --nvtop | --nmtui | --term]"
     echo "--btop       : Open btop in a new term"
     echo "--nvtop      : Open nvtop in a new term"
+    echo "--gud        : Open gdu in a new term"
     echo "--nmtui      : Open nmtui in a new term"
     echo "--term   : Launch a term window"
     echo "--files  : Launch a file manager"

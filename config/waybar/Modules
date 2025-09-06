@@ -172,6 +172,8 @@
 	"format": "{percentage_used}% 󰋊",
 	//"tooltip": true,
 	"tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
+	//"on-click-right": "baobab",
+	"on-click-right": "$HOME/.config/hypr/scripts/WaybarScripts.sh --gdu"
 },
 
 "hyprland/language": {
@@ -401,7 +403,9 @@
 		"wofi",
 		"rofi",
 		"kitty",
-    "kitty-dropterm"
+    	"kitty-dropterm",
+		"ghostty",
+		"ghostty-dropterm"
 		],
 },
 }

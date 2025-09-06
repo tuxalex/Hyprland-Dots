@@ -14,6 +14,7 @@ SCRIPTSDIR="$HOME/.config/hypr/scripts"
 notif="$HOME/.config/swaync/images/bell.png"
 wallust_rofi="$HOME/.config/wallust/templates/colors-rofi.rasi"
 
+ghostty_confg="$HOME/.config/ghostty/config"
 kitty_conf="$HOME/.config/kitty/kitty.conf"
 
 wallust_config="$HOME/.config/wallust/wallust.toml"
