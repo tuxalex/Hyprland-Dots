@@ -1,0 +1,32 @@
+# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  #
+
+# you can choose themes from $HOME/.config/ghostty/themes/
+theme = 00-Default
+
+# Font configuration
+font-family = "FantasqueSansM Nerd Font Mono Bold"
+font-size = 16
+
+# Opacity settings
+background-opacity = 0.9
+unfocused-split-opacity = 0.15
+
+# Scrollback and scroll settings
+scrollback-limit = 2000
+mouse-scroll-multiplier = 1
+
+# Window config
+window-padding-x = 4
+confirm-close-surface = false
+gtk-titlebar = false
+gtk-tabs-location = bottom
+window-decoration = auto
+
+# Color settings
+foreground = "#dddddd"
+background = "#000000"
+cursor-color = "#dddddd"
+
+# clipboard config
+clipboard-read = allow
+clipboard-write = allow
