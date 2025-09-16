@@ -7,6 +7,7 @@ local_dir="$HOME/.config/hypr"
 iDIR="$HOME/.config/swaync/images/"
 local_version=$(ls $local_dir/v* 2>/dev/null | sort -V | tail -n 1 | sed 's/.*v\(.*\)/\1/')
 KooL_Dots_DIR="$HOME/Hyprland-Dots"
+term="kitty"
 
 # exit if cannot find local version
 if [ -z "$local_version" ]; then
@@ -40,11 +41,11 @@ else
   case "$response" in
     "action1")  
       if [ -d $KooL_Dots_DIR ]; then
-      	if ! command -v kitty &> /dev/null; then
-  			notify-send -i "$iDIR/error.png" "E-R-R-O-R" "Kitty terminal not found. Please install Kitty terminal."
+      	if ! command -v $term &> /dev/null; then
+  			notify-send -i "$iDIR/error.png" "E-R-R-O-R" "$term terminal not found. Please install $term terminal."
   			exit 1
 		fi
-        kitty -e bash -c "
+        $term -e bash -c "
           cd $KooL_Dots_DIR &&
           git stash &&
           git pull &&
@@ -53,11 +54,11 @@ else
         "
 	
       else
-         if ! command -v kitty &> /dev/null; then
-  		  	notify-send -i "$iDIR/error.png" "E-R-R-O-R" "Kitty terminal not found. Please install Kitty terminal."
+         if ! command -v $term &> /dev/null; then
+  		  	notify-send -i "$iDIR/error.png" "E-R-R-O-R" "$term terminal not found. Please install $term terminal."
   			exit 1
 		fi
-        kitty -e bash -c "
+        $term -e bash -c "
           git clone --depth=1 https://github.com/JaKooLit/Hyprland-Dots.git $KooL_Dots_DIR &&
           cd $KooL_Dots_DIR &&
           chmod +x copy.sh &&
